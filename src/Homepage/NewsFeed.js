@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { format } from "date-fns";
 import { dayColors } from "../Constants";
-import { rapidKey } from "./key";
+// import { rapidKey } from "./key";
+const rapidKey = "key";
 
 const NewsFeed = ({ today }) => {
   const [articles, setArticles] = useState([]);

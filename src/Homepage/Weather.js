@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { rapidKey } from "./key";
+// import { rapidKey } from "./key";
+const rapidKey = "key";
 
 const Weather = () => {
   const [weather, setWeather] = useState(null);
