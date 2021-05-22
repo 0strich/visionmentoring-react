@@ -10,7 +10,7 @@ import { MdToday } from "react-icons/md";
 import NewsFeed from "./NewsFeed";
 import plannerLogo from "./planner_logo.png";
 import NewEventDialog from "../Components/NewEventDialog";
-import Weather from "./Weather";
+// import Weather from "./Weather";
 
 const Homepage = () => {
   const today = new Date();
@@ -28,14 +28,16 @@ const Homepage = () => {
       .catch((error) => console.log("error!", error));
   }, []);
 
-  let greeting = "";
-  if (today.getHours() < 12) {
-    greeting = "Good morning!";
-  } else if (today.getHours() < 18) {
-    greeting = "Good afternoon!";
-  } else {
-    greeting = "Good evening!";
-  }
+  let greeting = "안녕하세요!";
+  const greetingDay = format(today, "yyyy년 MM월 dd일");
+  console.log("aa ==> ", greetingDay.slice(5, 7));
+  // if (today.getHours() < 12) {
+  //   greeting = "Good morning!";
+  // } else if (today.getHours() < 18) {
+  //   greeting = "Good afternoon!";
+  // } else {
+  //   greeting = "Good evening!";
+  // }
 
   return (
     <Wrapper>
@@ -43,15 +45,23 @@ const Homepage = () => {
         <Logo src={plannerLogo} />
         <Greeting>
           <Welcome>{greeting}</Welcome>
-          <MainDate>
-            It's {format(today, "EEEE, LLLL do").toLowerCase()}.
-          </MainDate>
+          {greetingDay.slice(5, 7) === "0F" ? (
+            <MainDate>
+              오늘은 {format(today, "yyyy년 M월 dd일")}입니다.
+            </MainDate>
+          ) : (
+            <MainDate>
+              오늘은 {format(today, "yyyy년 MM월 dd일")}입니다.
+            </MainDate>
+          )}
         </Greeting>
       </TopBanner>
       <Events>
-        <SectionTitle>Preview of your day</SectionTitle>
+        <SectionTitle>오늘의 일정 미리보기</SectionTitle>
         {dayEvents.length === 0 ? (
-          <NothingPlanned>Nothing planned for today. Lucky you!</NothingPlanned>
+          <NothingPlanned>
+            오늘은 일정이 없습니다. 일정을 입력하세요!
+          </NothingPlanned>
         ) : (
           dayEvents.map((ev) => {
             return (
@@ -66,7 +76,7 @@ const Homepage = () => {
           })
         )}
       </Events>
-      <SectionTitle>Explore your planner</SectionTitle>
+      <SectionTitle>비전 라이프 스케줄러 살펴 보기</SectionTitle>
       <ActionSec>
         <ActionIcon
           onClick={(ev) => {
@@ -74,21 +84,22 @@ const Homepage = () => {
           }}
         >
           <MdToday size="40" color={`${COLORS.icon1}`} />
-          <IconText>Today</IconText>
+          <IconText>오늘</IconText>
         </ActionIcon>
         <ActionIcon
           onClick={() => history.push(`/week/${format(today, "y-MM-dd")}`)}
         >
           <BiCalendarWeek size="40" color={`${COLORS.icon1}`} />
-          <IconText>Week</IconText>
+          <IconText>주별</IconText>
         </ActionIcon>
         <ActionIcon onClick={() => history.push("/calendar-month")}>
           <GoCalendar size="40" color={`${COLORS.icon1}`} />
-          <IconText>Month</IconText>
+          <IconText>월별</IconText>
         </ActionIcon>
       </ActionSec>
-      <Focus>Focus Mode</Focus>
-      <Weather />
+      <Focus>초점 모드</Focus>
+      {/* 추후 필요할 경우 사용 */}
+      {/* <Weather /> */}
       <NewsFeed today={today} />
       <NewEventDialog />
     </Wrapper>
