@@ -2,14 +2,13 @@ version: "3.8"
 services:
   react:
     image: visionmentoring-react
-    container_name: vision-mentoring-container
+    container_name: visionmentoring-react-container
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      - VIRTUAL_HOST=salt-mine.io
-      - LETSENCRYPT_HOST=salt-mine.io
-      - PUBLIC_URL=visionmentoring.salt-mine.io
+      - VIRTUAL_HOST=visionmentoring.salt-mine.io
+      - LETSENCRYPT_HOST=visionmentoring.salt-mine.io
       - LETSENCRYPT_EMAIL=olive@salt-mine.io
     network_mode: "webproxy"
     restart: always
