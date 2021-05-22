@@ -59,15 +59,15 @@ const DayView = () => {
           onClick={() => history.push("/calendar-month")}
           style={{ backgroundColor: "#b5cdfd" }}
         >
-          month
+          월별
         </TabItem>
         <TabItem
           style={{ backgroundColor: "#b5cdfd" }}
           onClick={() => history.push(`/week/${params.date}`)}
         >
-          week
+          주별
         </TabItem>
-        <TabItem>Day</TabItem>
+        <TabItem>일별</TabItem>
       </Tabs>
       <DateSection today={today} />
 

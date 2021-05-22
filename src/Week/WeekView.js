@@ -119,14 +119,14 @@ const WeekView = () => {
           onClick={() => history.push("/calendar-month")}
           style={{ backgroundColor: "#b5cdfd" }}
         >
-          month
+          월별
         </TabItem>
-        <TabItem onClick={() => history.push("/week/a")}>week</TabItem>
+        <TabItem onClick={() => history.push("/week/a")}>주별</TabItem>
         <TabItem
           style={{ backgroundColor: "#b5cdfd" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
-          Day
+          일별
         </TabItem>
       </Tabs>
       <WeekBar>

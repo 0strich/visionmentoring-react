@@ -54,18 +54,18 @@ const CalendarView = () => {
         <NavIcon>
           <BiArrowBack onClick={() => history.goBack()} size={30} />
         </NavIcon>
-        <TabItem onClick={() => history.push("/calendar-month")}>month</TabItem>
+        <TabItem onClick={() => history.push("/calendar-month")}>월별</TabItem>
         <TabItem
           onClick={() => history.push(`/week/${format(new Date(), "y-MM-dd")}`)}
           style={{ backgroundColor: "#b5cdfd" }}
         >
-          week
+          주별
         </TabItem>
         <TabItem
           style={{ backgroundColor: "#b5cdfd" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
-          Day
+          일별
         </TabItem>
       </Tabs>
       <MyCalendar updateCurrentMonth={updateCurrentMonth} />
@@ -74,8 +74,8 @@ const CalendarView = () => {
         <>
           {MonthEvents.length === 0 ? (
             <NoEventsSection>
-              <p>You have nothing planned!</p>
-              <p>Tap " + " to add a task.</p>
+              <p>계획된 일정이 없습니다!</p>
+              <p>" + "를 탭해서 일정을 추가하세요.</p>
               <AddEventImg src={noEventToday} alt="Add fun activities" />
             </NoEventsSection>
           ) : null}
