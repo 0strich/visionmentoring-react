@@ -2,18 +2,22 @@ import React from "react";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Homepage from "./Homepage/Homepage";
-import CalendarView from "./Calendar/CalendarView";
-import DayView from "./Day/DayView";
-import WeekView from "./Week/WeekView";
-import Focus from "./Focus";
+import Login from "./pages/login/Login";
+import Homepage from "./pages/homepage/Homepage";
+import CalendarView from "./pages/calendar/CalendarView";
+import DayView from "./pages/day/DayView";
+import WeekView from "./pages/week/WeekView";
+import Focus from "./pages/focus/Focus";
 
 function App() {
   return (
     <Router>
       <GlobalStyles />
       <Switch>
-        <Route exact path="/">
+        <Route exact path={["/", "/login"]}>
+          <Login />
+        </Route>
+        <Route exact path="/home">
           <Homepage />
         </Route>
         <Route exact path="/calendar-month">
