@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +8,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -19,7 +17,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Vision Mentoring
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -47,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// 로그인
 const Login = () => {
   const history = useHistory();
   const classes = useStyles();
@@ -55,11 +54,8 @@ const Login = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Vision Mentoring
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -68,7 +64,7 @@ const Login = () => {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="이메일"
             name="email"
             autoComplete="email"
             autoFocus
@@ -79,14 +75,14 @@ const Login = () => {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="비밀번호"
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="자동 로그인"
           />
           <Button
             fullWidth
@@ -97,17 +93,26 @@ const Login = () => {
           >
             로그인
           </Button>
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={() => history.push("/register")}
+          >
+            회원가입
+          </Button>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">
                 비밀번호를 잊으셨나요?
               </Link>
             </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"계정이 없으신가요? 회원가입"}
+            {/* <Grid item>
+              <Link href="/register" variant="body2">
+                계정이 없으신가요? 회원가입
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </form>
       </div>
