@@ -15,27 +15,48 @@ function App() {
     <Router>
       <GlobalStyles />
       <Switch>
-        <Route exact path={["/", "/login"]}>
-          <Login />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
-        <Route exact path="/home">
-          <Homepage />
-        </Route>
-        <Route exact path="/calendar-month">
-          <CalendarView />
-        </Route>
-        <Route exact path="/date/:date">
-          <DayView />
-        </Route>
-        <Route exact path="/week/:date">
-          <WeekView />
-        </Route>
-        <Route exact path="/focus">
-          <Focus />
-        </Route>
+        <Route
+          exact
+          path={["/", "/login"]}
+          name={"login"}
+          render={(props) => <Login {...props} />}
+        />
+        <Route
+          exact
+          path="/register"
+          name={"register"}
+          render={(props) => <Register {...props} />}
+        />
+        <Route
+          exact
+          path="/home"
+          name={"home"}
+          render={(props) => <Homepage {...props} />}
+        />
+        <Route
+          exact
+          path="/calendar-month"
+          name={"calendarMonth"}
+          render={(props) => <CalendarView {...props} />}
+        />
+        <Route
+          exact
+          path="/date/:date"
+          name={"date"}
+          render={(props) => <DayView {...props} />}
+        />
+        <Route
+          exact
+          path="/week/:date"
+          name={"week"}
+          render={(props) => <WeekView {...props} />}
+        />
+        <Route
+          exact
+          path="/focus"
+          name={"focus"}
+          render={(props) => <Focus {...props} />}
+        />
       </Switch>
     </Router>
   );

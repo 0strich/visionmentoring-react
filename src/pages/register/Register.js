@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+// router
 import { useHistory } from "react-router-dom";
+// material-ui
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -12,15 +14,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      Copyright {new Date().getFullYear()}. Vision Mentoring All rights
-      reserved.
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -32,10 +25,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
@@ -43,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
 
 // 회원가입
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+
   const history = useHistory();
   const classes = useStyles();
 
@@ -53,7 +46,7 @@ const Register = () => {
         <Typography component="h1" variant="h5">
           회원가입
         </Typography>
-        <form className={classes.form} noValidate>
+        <form style={{ marginTop: 30 }} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -103,7 +96,7 @@ const Register = () => {
             color="primary"
             className={classes.submit}
           >
-            회원가입
+            <text style={{ color: "white" }}>회원가입</text>
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
@@ -115,7 +108,10 @@ const Register = () => {
         </form>
       </div>
       <Box mt={5}>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+          Copyright {new Date().getFullYear()}. Vision Mentoring All rights
+          reserved.
+        </Typography>
       </Box>
     </Container>
   );

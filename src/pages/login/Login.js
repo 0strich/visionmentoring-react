@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+// router
 import { useHistory } from "react-router-dom";
+// material-ui
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -12,15 +14,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      Copyright {new Date().getFullYear()}. Vision Mentoring All rights
-      reserved.
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -32,17 +25,13 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
 }));
 
 // 로그인
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const history = useHistory();
   const classes = useStyles();
 
@@ -53,7 +42,7 @@ const Login = () => {
         <Typography component="h1" variant="h5">
           Vision Mentoring
         </Typography>
-        <form className={classes.form} noValidate>
+        <form style={{ marginTop: 30 }} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -84,19 +73,19 @@ const Login = () => {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            style={{ marginTop: 10, marginBottom: 20 }}
             onClick={() => history.push("/home")}
           >
-            로그인
+            <text style={{ color: "white" }}>로그인</text>
           </Button>
           <Button
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            style={{ marginBottom: 20 }}
             onClick={() => history.push("/register")}
           >
-            회원가입
+            <text style={{ color: "white" }}>회원가입</text>
           </Button>
           <Grid container>
             <Grid item xs>
@@ -113,7 +102,10 @@ const Login = () => {
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+          Copyright {new Date().getFullYear()}. Vision Mentoring All rights
+          reserved.
+        </Typography>
       </Box>
     </Container>
   );
