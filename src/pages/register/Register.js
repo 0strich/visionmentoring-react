@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 // material-ui
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -40,67 +39,71 @@ const Register = () => {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container component={"main"} maxWidth={"xs"}>
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component={"h1"} variant={"h5"}>
           회원가입
         </Typography>
         <form style={{ marginTop: 30 }} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
+                variant={"outlined"}
                 required
                 fullWidth
-                id="email"
-                label="이메일"
-                name="email"
-                autoComplete="email"
+                id={"email"}
+                label={"이메일"}
+                name={"email"}
+                autoComplete={"email"}
+                value={"email"}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
+                variant={"outlined"}
                 required
                 fullWidth
-                name="password"
-                label="비밀번호"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name={"password"}
+                label={"비밀번호"}
+                type={"password"}
+                id={"password"}
+                autoComplete={"current-password"}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
+                variant={"outlined"}
                 required
                 fullWidth
-                name="password"
-                label="비밀번호 확인"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name={"password"}
+                label={"비밀번호 확인"}
+                type={"password"}
+                id={"password"}
+                autoComplete={"current-password"}
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                control={
+                  <Checkbox value={"allowExtraEmails"} color={"primary"} />
+                }
+                label={
+                  "I want to receive inspiration, marketing promotions and updates via email."
+                }
               />
             </Grid>
           </Grid>
           <Button
             fullWidth
-            variant="contained"
-            color="primary"
+            variant={"contained"}
+            color={"primary"}
             className={classes.submit}
           >
             <text style={{ color: "white" }}>회원가입</text>
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container justify={"flex-end"}>
             <Grid item>
-              <Link href="/login" variant="body2">
+              <Link href={"/login"} variant={"body2"}>
                 계정이 있으신가요? 로그인
               </Link>
             </Grid>
@@ -108,7 +111,7 @@ const Register = () => {
         </form>
       </div>
       <Box mt={5}>
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant={"body2"} color={"textSecondary"} align={"center"}>
           Copyright {new Date().getFullYear()}. Vision Mentoring All rights
           reserved.
         </Typography>

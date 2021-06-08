@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 // material-ui
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -36,43 +35,42 @@ const Login = () => {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
+    <Container component={"main"} maxWidth={"xs"}>
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component={"h1"} variant={"h5"}>
           Vision Mentoring
         </Typography>
         <form style={{ marginTop: 30 }} noValidate>
           <TextField
-            variant="outlined"
-            margin="normal"
+            variant={"outlined"}
+            margin={"normal"}
             required
             fullWidth
-            id="email"
-            label="이메일"
-            name="email"
-            autoComplete="email"
+            id={"email"}
+            label={"이메일"}
+            name={"email"}
+            autoComplete={"email"}
             autoFocus
           />
           <TextField
-            variant="outlined"
-            margin="normal"
+            variant={"outlined"}
+            margin={"normal"}
             required
             fullWidth
-            name="password"
-            label="비밀번호"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+            name={"password"}
+            label={"비밀번호"}
+            type={"password"}
+            id={"password"}
+            autoComplete={"current-password"}
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox value={"remember"} color={"primary"} />}
             label="자동 로그인"
           />
           <Button
             fullWidth
-            variant="contained"
-            color="primary"
+            variant={"contained"}
+            color={"primary"}
             style={{ marginTop: 10, marginBottom: 20 }}
             onClick={() => history.push("/home")}
           >
@@ -80,8 +78,8 @@ const Login = () => {
           </Button>
           <Button
             fullWidth
-            variant="contained"
-            color="primary"
+            variant={"contained"}
+            color={"primary"}
             style={{ marginBottom: 20 }}
             onClick={() => history.push("/register")}
           >
@@ -89,20 +87,15 @@ const Login = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href={"#"} variant={"body2"}>
                 비밀번호를 잊으셨나요?
               </Link>
             </Grid>
-            {/* <Grid item>
-              <Link href="/register" variant="body2">
-                계정이 없으신가요? 회원가입
-              </Link>
-            </Grid> */}
           </Grid>
         </form>
       </div>
       <Box mt={8}>
-        <Typography variant="body2" color="textSecondary" align="center">
+        <Typography variant={"body2"} color={"textSecondary"} align={"center"}>
           Copyright {new Date().getFullYear()}. Vision Mentoring All rights
           reserved.
         </Typography>
